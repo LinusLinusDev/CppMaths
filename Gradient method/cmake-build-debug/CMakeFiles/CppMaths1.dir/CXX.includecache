@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/linus/Documents/CppMaths/Gradient method/main.cpp
+iostream
+-
+cmath
+-
+vektor.h
+/Users/linus/Documents/CppMaths/Gradient method/vektor.h
+
+/Users/linus/Documents/CppMaths/Gradient method/vektor.cpp
+iostream
+-
+math.h
+-
+vektor.h
+/Users/linus/Documents/CppMaths/Gradient method/vektor.h
+
+/Users/linus/Documents/CppMaths/Gradient method/vektor.h
+

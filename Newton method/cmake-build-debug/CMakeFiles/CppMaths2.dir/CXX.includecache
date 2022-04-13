@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/linus/Documents/CppMaths/Newton method/main.cpp
+iostream
+-
+cmath
+-
+matrix.h
+/Users/linus/Documents/CppMaths/Newton method/matrix.h
+
+/Users/linus/Documents/CppMaths/Newton method/matrix.cpp
+iostream
+-
+cassert
+-
+matrix.h
+/Users/linus/Documents/CppMaths/Newton method/matrix.h
+
+/Users/linus/Documents/CppMaths/Newton method/matrix.h
+vektor.h
+/Users/linus/Documents/CppMaths/Newton method/vektor.h
+
+/Users/linus/Documents/CppMaths/Newton method/vektor.cpp
+iostream
+-
+cassert
+-
+math.h
+-
+vektor.h
+/Users/linus/Documents/CppMaths/Newton method/vektor.h
+
+/Users/linus/Documents/CppMaths/Newton method/vektor.h
+
