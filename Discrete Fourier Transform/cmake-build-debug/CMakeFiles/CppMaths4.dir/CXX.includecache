@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/linus/Documents/CppMaths/Discrete Fourier Transform/CKomplex.cpp
-math.h
--
-CKomplex.h
-/Users/linus/Documents/CppMaths/Discrete Fourier Transform/CKomplex.h
-
 /Users/linus/Documents/CppMaths/Discrete Fourier Transform/CKomplex.h
 
 /Users/linus/Documents/CppMaths/Discrete Fourier Transform/main.cpp

@@ -26,7 +26,7 @@ int main()
     CMyVektor start1(2);
     start1[0] = 0;
     start1[1] = 1;
-    systemTest.euler(0, 2, 100, start1);
+    //systemTest.euler(0, 2, 100, start1);
     //systemTest.heun(0, 2, 100, start1);
 
     C_DGLSolver dritterOrdnungTest(DGL_dritterOrdnung);

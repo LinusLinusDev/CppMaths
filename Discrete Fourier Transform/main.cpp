@@ -15,15 +15,53 @@ void fouriertransformation_reell(vector<CKomplex>& f);
 void fouriertransformation(vector<CKomplex>& f);
 void fourierrücktransformation(vector<CKomplex> &werte);
 double maximale_Abweichung(vector<CKomplex> a, vector<CKomplex> b);
+void fastfouriertransformation(vector<CKomplex>& f);
+void fastfourierrücktransformation(vector<CKomplex>& c);
+vector<CKomplex> fft(vector<CKomplex> f);
+vector<CKomplex> ifft(vector<CKomplex> c);
+
+const double pi = acos(-1);
+const double div_sqrt_two = 1 / sqrt(2);
 
 int main()
 {
 
-    vector<CKomplex> o = werte_einlesen("Daten_original.txt");
+    vector<CKomplex> original = werte_einlesen("mario.txt");
+    original = fft(original);
 
-    fouriertransformation(o);
-    werte_ausgeben("Daten0.txt", o);
+    werte_ausgeben("mariofourierstandard.txt",original);
+    werte_ausgeben("mariofourier1.txt",original,1);
+    werte_ausgeben("mariofourier10.txt",original,10);
+    werte_ausgeben("mariofourier100.txt",original,100);
+    werte_ausgeben("mariofourier300.txt",original,300);
+    werte_ausgeben("mariofourier1000.txt",original,1000);
 
+
+    vector<CKomplex> standard = werte_einlesen("mariofourierstandard.txt");
+    standard = ifft(standard);
+    werte_ausgeben("mariotransformedstandard.txt",standard);
+
+    vector<CKomplex> m1 = werte_einlesen("mariofourier1.txt");
+    m1 = ifft(m1);
+    werte_ausgeben("mariotransformed1.txt",m1);
+
+    vector<CKomplex> m10 = werte_einlesen("mariofourier10.txt");
+    m10 = ifft(m10);
+    werte_ausgeben("mariotransformed10.txt",m10);
+
+    vector<CKomplex> m100 = werte_einlesen("mariofourier100.txt");
+    m100 = ifft(m100);
+    werte_ausgeben("mariotransformed100.txt",m100);
+
+    vector<CKomplex> m300 = werte_einlesen("mariofourier300.txt");
+    m300 = ifft(m300);
+    werte_ausgeben("mariotransformed300.txt",m300);
+
+    vector<CKomplex> m1000 = werte_einlesen("mariofourier1000.txt");
+    m1000 = ifft(m1000);
+    werte_ausgeben("mariotransformed1000.txt",m1000);
+
+    /*
     vector<CKomplex> original = werte_einlesen("Daten_original.txt");
 
     vector<CKomplex> daten0 = werte_einlesen("Daten0.txt");
@@ -45,7 +83,7 @@ int main()
     vector<CKomplex> daten4 = werte_einlesen("Daten4.txt");
     fourierrücktransformation(daten4);
     cout << "Maximale Abweichung bei epsilon=1: " << maximale_Abweichung(original, daten4) << endl;
-
+    */
     return 0;
 }
 
@@ -98,7 +136,6 @@ void werte_ausgeben(const char* dateiname, vector<CKomplex> werte, double epsilo
 void fouriertransformation_reell(vector<CKomplex>& f)
 {
     //funktioniert wegen C(N-n)=C(n)* nur mit reellen Datenpunkten
-    const double pi = acos(-1);
     int N = f.size();
     vector<CKomplex> result(N);
     CKomplex sum(0, 0), temp;
@@ -127,7 +164,6 @@ void fouriertransformation_reell(vector<CKomplex>& f)
 
 void fouriertransformation(vector<CKomplex>& f)
 {
-    const double pi = acos(-1);
     int N = f.size();
     vector<CKomplex> result(N);
     CKomplex sum, temp;
@@ -149,7 +185,6 @@ void fouriertransformation(vector<CKomplex>& f)
 
 void fourierrücktransformation(vector<CKomplex> &c)
 {
-    const double pi = acos(-1);
     int N = c.size();
     vector<CKomplex> result(N);
     CKomplex sum, temp;
@@ -177,8 +212,75 @@ double maximale_Abweichung(vector<CKomplex> a, vector<CKomplex> b)
     for (int i = 0; i < N; i++)
     {
         temp = (a[i]-b[i]).abs();
-        //if (temp < 0)temp *= -1;
         if (temp > result)result = temp;
     }
+    return result;
+}
+
+vector<CKomplex> fft(vector<CKomplex> f)
+{
+    int N = f.size();
+    vector<CKomplex> result(N);
+
+    if (N == 2){
+        result[0] = (f[0] + f[1]) * div_sqrt_two;
+        result[1] = (f[0] - f[1]) * div_sqrt_two;
+        return result;
+    }
+
+    int M = N / 2;
+    vector<CKomplex> g(M), u(M);
+
+    for(int i = 0; i<M; i++){
+        g[i] = f[2*i];
+        u[i] = f[2*i+1];
+    }
+
+    g = fft(g);
+    u = fft(u);
+
+    const double lnw = -2 * pi / N;
+    CKomplex temp;
+
+    for (int m = 0; m < M; m++){
+        temp.setpol(lnw * m);
+        result[m] = (g[m] + temp * u[m]) * div_sqrt_two;
+        result[m + M] = (g[m] - temp * u[m]) * div_sqrt_two;
+    }
+
+    return result;
+}
+
+vector<CKomplex> ifft(vector<CKomplex> c)
+{
+    int N = c.size();
+    vector<CKomplex> result(N);
+
+    if (N == 2){
+        result[0] = (c[0] + c[1]) * div_sqrt_two;
+        result[1] = (c[0] - c[1]) * div_sqrt_two;
+        return result;
+    }
+
+    int M = N / 2;
+    vector<CKomplex> g(M), u(M);
+
+    for(int i = 0; i<M; i++){
+        g[i] = c[2 * i];
+        u[i] = c[2 * i + 1];
+    }
+
+    g = ifft(g);
+    u = ifft(u);
+
+    const double lnw = 2 * pi / N;
+    CKomplex temp;
+
+    for (int m = 0; m < M; m++){
+        temp.setpol(lnw * m);
+        result[m] = (g[m] + temp * u[m]) * div_sqrt_two;
+        result[m + M] = (g[m] - temp * u[m]) * div_sqrt_two;
+    }
+
     return result;
 }

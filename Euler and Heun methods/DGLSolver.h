@@ -16,6 +16,6 @@ public:
 	C_DGLSolver(CMyVektor(*f_DGL_System)(CMyVektor y, double x)) :system{ true }, f_System{ f_DGL_System }, f_nterOrdnung{ nullptr }{}
 	C_DGLSolver(double(*f_DGL_nterOrdnung)(CMyVektor y, double x)) : system{ false }, f_System{ nullptr }, f_nterOrdnung{ f_DGL_nterOrdnung }{}
 
-	void euler(double x_start, double end, int steps, CMyVektor y_start);
-	void heun(double x_start, double end, int steps, CMyVektor y_start);
+	void euler(double x, double end, int steps, CMyVektor y);
+	void heun(double x, double end, int steps, CMyVektor y);
 };

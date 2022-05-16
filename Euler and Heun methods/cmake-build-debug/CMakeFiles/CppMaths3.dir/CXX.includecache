@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/linus/Documents/CppMaths/Euler and Heun methods/DGLSolver.cpp
-iostream
--
-fstream
--
-DGLSolver.h
-/Users/linus/Documents/CppMaths/Euler and Heun methods/DGLSolver.h
-
 /Users/linus/Documents/CppMaths/Euler and Heun methods/DGLSolver.h
 vektor.h
 /Users/linus/Documents/CppMaths/Euler and Heun methods/vektor.h
@@ -25,16 +17,6 @@ vektor.h
 /Users/linus/Documents/CppMaths/Euler and Heun methods/vektor.h
 DGLSolver.h
 /Users/linus/Documents/CppMaths/Euler and Heun methods/DGLSolver.h
-
-/Users/linus/Documents/CppMaths/Euler and Heun methods/vektor.cpp
-iostream
--
-cassert
--
-math.h
--
-vektor.h
-/Users/linus/Documents/CppMaths/Euler and Heun methods/vektor.h
 
 /Users/linus/Documents/CppMaths/Euler and Heun methods/vektor.h
 

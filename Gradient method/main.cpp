@@ -37,7 +37,7 @@ int main()
     CMyVektor test1(2);
     test1[0] = 0.2;
     test1[1] = -2.1;
-    //maximize(test1,f);
+    maximize(test1,f);
 
     CMyVektor test2(3);
     test2[0] = 0;
@@ -48,7 +48,7 @@ int main()
     CMyVektor start1(2); // Lösung ( 9/14 , 17/14 )
     start1[0] = 0.1; //m
     start1[1] = 1; //a
-    maximize(start1, m);
+    //maximize(start1, m);
 
     CMyVektor start2(2); //ohne Log
     start2[0] = 0.1; // lambda

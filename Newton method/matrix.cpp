@@ -112,7 +112,6 @@ CMyMatrix jacobi(CMyVektor x, double(*funktion)(CMyVektor x)) //jacobi matrix vo
         CMyVektor fxh = gradient(temp,funktion);
         for (int j = 0; j < lines; j++)
         {
-
             result[j][i] = (fxh[j] - fx[j]) * h_mult;
         }
         temp[i] = x[i];
@@ -124,7 +123,7 @@ CMyVektor newton(CMyVektor x, CMyVektor(*funktion)(CMyVektor x), int steps)
 {
     CMyVektor fx = funktion(x);
     double length = fx.get_length();
-    assert(x.get_dimension() == 2 && fx.get_dimension() == 2);
+    assert(x.get_dimension() == fx.get_dimension());
     int i;
     for (i = 0; i < steps && length>1e-5; i++)
     {
