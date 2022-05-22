@@ -23,13 +23,15 @@ void CLotto::setTippzettel()
 	cout << "Tippzettel ausfuellen fuer " << k << " aus " << n << " Ziehung:\n";
 	for (int i = 0; i < k; i++)
 	{
-		while(true)
-		{
-			cout << "Bitte " << i + 1 << ". Zahl auswaehlen: ";
-			if (getInt(temp) && temp > 0 && temp <= n)break;
-		}
-		if (!tippzettel[temp-1])tippzettel[temp-1] = true;
-		else i--;
+        do
+        {
+            while(true)
+            {
+                cout << "Bitte " << i + 1 << ". Zahl auswaehlen: ";
+                if (getInt(temp) && temp > 0 && temp <= n)break;
+            }
+        } while (tippzettel[temp - 1]);
+        tippzettel[temp - 1] = true;
 	}
 }
 
@@ -45,10 +47,6 @@ void CLotto::setRandomTippzettel()
 			temp = zufall.wert(1, n);
 		} while (tippzettel[temp - 1]);
 		tippzettel[temp - 1] = true;
-
-		/*temp = zufall.wert(1, n);
-		if (!tippzettel[temp - 1])tippzettel[temp - 1] = true;
-		else i--;*/
 	}
 }
 
@@ -59,13 +57,12 @@ vector<int> CLotto::ziehung()
 	vector<int> ziehung(k);
 	for (int i = 0; i < k; i++)
 	{
-		temp = zufall.wert(1, n);
-		if (!gezogen[temp-1])
-		{
-			ziehung[i] = temp;
-			gezogen[temp-1] = true;
-		}
-		else i--;
+        do
+        {
+            temp = zufall.wert(1, n);
+        } while (gezogen[temp-1]);
+        ziehung[i] = temp;
+        gezogen[temp-1] = true;
 	}
 	delete[] gezogen;
 	return ziehung;

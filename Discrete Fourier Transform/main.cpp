@@ -25,7 +25,7 @@ const double div_sqrt_two = 1 / sqrt(2);
 
 int main()
 {
-
+    /*
     vector<CKomplex> original = werte_einlesen("mario.txt");
     original = fft(original);
 
@@ -35,7 +35,6 @@ int main()
     werte_ausgeben("mariofourier100.txt",original,100);
     werte_ausgeben("mariofourier300.txt",original,300);
     werte_ausgeben("mariofourier1000.txt",original,1000);
-
 
     vector<CKomplex> standard = werte_einlesen("mariofourierstandard.txt");
     standard = ifft(standard);
@@ -60,6 +59,7 @@ int main()
     vector<CKomplex> m1000 = werte_einlesen("mariofourier1000.txt");
     m1000 = ifft(m1000);
     werte_ausgeben("mariotransformed1000.txt",m1000);
+    */
 
     /*
     vector<CKomplex> original = werte_einlesen("Daten_original.txt");
