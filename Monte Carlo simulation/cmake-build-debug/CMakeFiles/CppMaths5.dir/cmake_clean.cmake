@@ -1,10 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CppMaths5.dir/CLotto.cpp.o"
-  "CMakeFiles/CppMaths5.dir/CLotto.cpp.o.d"
   "CMakeFiles/CppMaths5.dir/CZufall.cpp.o"
-  "CMakeFiles/CppMaths5.dir/CZufall.cpp.o.d"
   "CMakeFiles/CppMaths5.dir/main.cpp.o"
-  "CMakeFiles/CppMaths5.dir/main.cpp.o.d"
   "CppMaths5"
   "CppMaths5.pdb"
 )
