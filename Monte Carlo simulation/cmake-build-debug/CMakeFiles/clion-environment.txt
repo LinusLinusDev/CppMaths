@@ -1,3 +1,4 @@
-ToolSet: 1.0 (local)Options: 
+ToolSet: 1.0 (local)Ninja: 1.13.2@/Users/linus/Applications/CLion.app/Contents/bin/ninja/mac/x64/ninja
+Options: 
 
 Options:

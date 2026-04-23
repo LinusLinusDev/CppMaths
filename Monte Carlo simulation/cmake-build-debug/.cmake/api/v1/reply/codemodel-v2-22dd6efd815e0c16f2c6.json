@@ -1,0 +1,61 @@
+{
+	"configurations" : 
+	[
+		{
+			"abstractTargets" : [],
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-9ad1a58d4644cf6543fa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.20"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "CppMaths5",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "CppMaths5::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CppMaths5-Debug-2a802a770d60d094830c.json",
+					"name" : "CppMaths5",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/linus/Library/CloudStorage/OneDrive-Universita\u0308tzuKo\u0308ln/Master/MA/Mathe 2 Praktikum/CppMaths/Monte Carlo simulation/cmake-build-debug",
+		"source" : "/Users/linus/Library/CloudStorage/OneDrive-Universita\u0308tzuKo\u0308ln/Master/MA/Mathe 2 Praktikum/CppMaths/Monte Carlo simulation"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 9
+	}
+}
